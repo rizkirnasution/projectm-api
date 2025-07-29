@@ -1,0 +1,21 @@
+import { Request, Response } from "express";
+import { Role } from "../models/roles.model";
+
+export const getAllRole = async (req: Request, res: Response) => {
+  try {
+    const roles = await Role.findAll();
+
+    return res.status(200).json({
+      status: 200,
+      message: "Success!",
+      data: roles,
+    });
+  } catch (error) {
+    console.error("Error :", error);
+    return res.status(500).json({
+      status: 500,
+      message: "There is something wrong",
+      data: null,
+    });
+  }
+};
