@@ -55,6 +55,17 @@ export class Task extends Model<Task> {
   @Column(DataType.JSON)
   contributors?: string[];
 
+  @Column({
+    type: DataType.JSON,
+    allowNull: true,
+    field: "file_uploads",
+  })
+  fileUpload?: {
+    originalname?: string;
+    mimetype?: string;
+    buffer?: string;
+  };
+
   @Column({ type: DataType.STRING(50), field: "created_by" })
   createdBy?: string;
 

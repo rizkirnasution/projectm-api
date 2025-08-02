@@ -7,13 +7,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+//instance konfigurasi koneksi ke database MySQL
 const sequelize = new Sequelize({
   dialect: "mysql",
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  models: [User, Role, Task],
+  models: [User, Role, Task],//model model yg didaftarkan ke sequalize
   logging: false,
 });
 
